@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="GBK"?>  
+<!-- 指定DWR配置文件的DTD等信息 -->  
+<!DOCTYPE dwr PUBLIC "-//GetAhead Limited//DTD Direct Web Remoting 3.0//EN"  
+    "http://getahead.org/dwr/dwr30.dtd">  
+<!-- DWR配置文件的根元素是dwr -->  
+<dwr>  
+    <allow>  
+        <!-- 使用new关键资创建一个Java实例  
+            指定创建的JavaScript对象名为hello-->  
+        <create creator="new" javascript="hello">  
+            <!-- 使用class属性指定创建该Java实例的实现类 -->  
+            <param name="class" value="com.owen.dwr.HelloDwr"/>  
+        </create>  
+        <!-- 对com.owen.dwr.domain.Person类使用Bean转换器 -->  
+        <convert converter="bean" match="com.owen.dwr.domain.Person"/>  
+        <!-- 对com.owen.dwr.domain.Cat使用Object转换器 -->  
+        <convert converter="object" match="com.owen.dwr.domain.Cat">  
+            <!-- 指定force="true"强制使用反射访问私有属性 -->  
+            <param name="force" value="true"/>  
+        </convert>  
+    </allow>  
+    <signatures>  
+        <![CDATA[ 
+        import java.util.List; 
+        import com.owen.dwr.HelloDwr; 
+        import com.owen.dwr.domain.Person; 
+        HelloDwr.sendListNoGeneric(List<Person>); 
+        ]]>  
+    </signatures>  
+</dwr>  
