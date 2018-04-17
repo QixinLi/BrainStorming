@@ -57,6 +57,10 @@ function changeWindowAuto(){
 		"left":panelwidth*0.2138889,
 		"top":panelwidth*0.308333
 	});
+        $("#getHb").css({
+		"left":panelwidth*0.2138889,
+		"top":panelwidth*0.55
+	});
         $("#userimg").css({
 		"left":panelwidth*0.069444,
 		"top":panelwidth*0.069444,
@@ -122,6 +126,20 @@ var animateButtonSendReport = function(e) {
   e.target.classList.add('animate');
   setTimeout(function(){
     e.target.classList.remove('animate');
+    $(window).attr('location','feedback.jsp');
+  },700);
+};
+
+var animateButtonGetHb = function(e) {
+
+  e.preventDefault;
+  //reset animation
+  e.target.classList.remove('animate');
+  
+  e.target.classList.add('animate');
+  setTimeout(function(){
+    e.target.classList.remove('animate');
+    $(window).attr('location','alipay.html');
   },700);
 };
 
@@ -134,4 +152,7 @@ newQues.addEventListener('click',animateButtonInsertNewQues,false);
 var sendReport = document.getElementById("sendReport");
 sendReport.addEventListener('click',animateButtonSendReport,false);
 
+
+var getHb = document.getElementById("getHb");
+getHb.addEventListener('click',animateButtonGetHb,false);
 

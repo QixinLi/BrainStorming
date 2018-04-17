@@ -58,12 +58,12 @@ String score;
             
             <button id="shareBt" class="absol" onclick="clickBack()">返回主页</button>
             
-            <div id="bdshare" class="bdshare_t bds_tools get-codes-bdshare absol">
-            <a href="#" class="bds_more" data-cmd="more">分享到：</a>
-            <a href="#" class="bds_sqq" data-cmd="sqq" title="分享到QQ好友">QQ</a>
-            <a href="#" class="bds_qzone" data-cmd="qzone" title="分享到QQ空间">QQ空间</a>
-            <a href="#" class="bds_tsina" data-cmd="tsina" title="分享到新浪微博">新浪微博</a>
-            
+            <div class="bdsharebuttonbox absol" data-tag="share_1">
+                <a class="bds_mshare" data-cmd="mshare"></a>
+                <a class="bds_sqq" data-cmd="sqq" href="#"></a>
+                <a class="bds_qzone" data-cmd="qzone"></a>
+                <a class="bds_weixin" data-cmd="weixin"></a>
+                <a class="bds_more" data-cmd="more">更多</a>
             </div>
         </div>
         
@@ -71,19 +71,31 @@ String score;
 <script type="text/javascript" id="bdshare_js" data="type=tools&mini=1" ></script> 
 <script type="text/javascript" id="bdshell_js"></script> 
 <script>
-    $("#shareMsg").text(shareMsg);
-    var shareString="我在头脑风暴一局斩获"+score+"分，你也来试试吧！";
-    var bds_config = {
-            "bdText": shareString,
-            "bdDesc": "头脑风暴，谁敢来战！",
-            "bdMini": "2",
-            "bdMiniList": false,
-            "bdPic": "https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523093534326&di=f0e34f0b961a5d0652abdedfcbf2ec3c&imgtype=0&src=http%3A%2F%2Fimage.woshipm.com%2Fwp-files%2F2016%2F03%2F6512bd43d9caa6e02c990b0a82652dca.png",
-            "url": "http://47.96.162.8:8080/AnswerSheet/",
-            "bdStyle": "0",
-            "bdSize": "24"
-    };
-    document.getElementById('bdshell_js').src = "http://share.baidu.com/static/js/shell_v2.js?cdnversion=" + Math.ceil(new Date()/3600000);
+    var bddesc="我这次在头脑风暴连续答对"+score+"题。你也来试试吧！";
+	window._bd_share_config = {
+		common : {
+			bdText : '头脑风暴，等你来战',	
+			bdDesc : bddesc,	
+			bdUrl : 'http://47.96.162.8:8080/AnswerSheet/', 	
+			bdPic : 'https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1523093534326&di=f0e34f0b961a5d0652abdedfcbf2ec3c&imgtype=0&src=http%3A%2F%2Fimage.woshipm.com%2Fwp-files%2F2016%2F03%2F6512bd43d9caa6e02c990b0a82652dca.png'
+		},
+		share : [{
+			"bdSize" : 32
+		}],
+		slide : [{	   
+			bdImg : 0,
+			bdPos : "right",
+			bdTop : 100
+		}],
+		image : [{
+			viewType : 'list',
+			viewPos : 'top',
+			viewColor : 'black',
+			viewSize : '16',
+			viewList : ['sqq','qzone','tsina','weixin']
+		}]
+	}
+	with(document)0[(getElementsByTagName('head')[0]||body).appendChild(createElement('script')).src='http://bdimg.share.baidu.com/static/api/js/share.js?cdnversion='+~(-new Date()/36e5)];
 </script>
     </body>
 </html>

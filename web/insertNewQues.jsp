@@ -57,6 +57,16 @@
         {
             $.DialogByZ.Close();
         }
+        function isContainsErrStr(str) {
+            var index str.indexOf("{")+str.indexOf("}")+str.indexOf("\"")+str.indexOf(",");
+            if(index>=0)
+            {
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
         function addCheck(){  
             var title=document.getElementById("title").value;  
             var classes=document.getElementById("classes").value;  
@@ -69,31 +79,73 @@
                 document.getElementById("title").focus();    
                 return false;  
             }
+            else if(isContainsErrStr(title))
+            {
+                $.DialogByZ.Alert({Title:"提示",Content:"该输入中包含错误字符！",BtnL:"确认",FunL:alerts});
+                document.getElementById("title").focus();    
+                return false; 
+            }
+                
             if(classes==""){  
             	$.DialogByZ.Alert({Title:"提示",Content:"类别不能为空！",BtnL:"确认",FunL:alerts});
                 document.getElementById("classes").focus();  
                 return false;  
             } 
+            else if(isContainsErrStr(classes))
+            {
+                $.DialogByZ.Alert({Title:"提示",Content:"该输入中包含错误字符！",BtnL:"确认",FunL:alerts});
+                document.getElementById("classes").focus();    
+                return false; 
+            }
+            
             if(optionA==""){  
             	$.DialogByZ.Alert({Title:"提示",Content:"选项A不能为空！",BtnL:"确认",FunL:alerts});
                 document.getElementById("optionA").focus();  
                 return false;  
             } 
+            else if(isContainsErrStr(optionA))
+            {
+                $.DialogByZ.Alert({Title:"提示",Content:"该输入中包含错误字符！",BtnL:"确认",FunL:alerts});
+                document.getElementById("optionA").focus();    
+                return false; 
+            }
+            
             if(optionB==""){  
             	$.DialogByZ.Alert({Title:"提示",Content:"选项B不能为空！",BtnL:"确认",FunL:alerts});
                 document.getElementById("optionB").focus();  
                 return false;  
             } 
+            else if(isContainsErrStr(optionB))
+            {
+                $.DialogByZ.Alert({Title:"提示",Content:"该输入中包含错误字符！",BtnL:"确认",FunL:alerts});
+                document.getElementById("optionB").focus();    
+                return false; 
+            }
+            
             if(optionC==""){  
             	$.DialogByZ.Alert({Title:"提示",Content:"选项C不能为空！",BtnL:"确认",FunL:alerts});
                 document.getElementById("optionC").focus();  
                 return false;  
             } 
+            else if(isContainsErrStr(optionC))
+            {
+                $.DialogByZ.Alert({Title:"提示",Content:"该输入中包含错误字符！",BtnL:"确认",FunL:alerts});
+                document.getElementById("optionC").focus();    
+                return false; 
+            }
+            
             if(optionD==""){  
             	$.DialogByZ.Alert({Title:"提示",Content:"选项D不能为空！",BtnL:"确认",FunL:alerts});
                 document.getElementById("optionD").focus();  
                 return false;  
             } 
+            else if(isContainsErrStr(optionD))
+            {
+                $.DialogByZ.Alert({Title:"提示",Content:"该输入中包含错误字符！",BtnL:"确认",FunL:alerts});
+                document.getElementById("optionD").focus();    
+                return false; 
+            }
+            
             
         }  
         function validate(){  

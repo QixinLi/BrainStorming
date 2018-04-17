@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>登录</title>
+        <title>头脑风暴</title>
         <link type="text/css" rel="stylesheet"  href="css/login.css" />
         <script type="text/javascript" src="js/login.js"></script>
         <!--弹出层 开始 -->
@@ -31,6 +31,10 @@ String username="null";
     if(flag!=null)
         iscorrect="0";
 %> 
+<div style="display: none">
+    介系你没有玩过的船新版本
+    你会爱向介款游戏
+</div>
     
     <body onload="AutoLoad()" onresize="changeWindowAuto()">
         <form action ="login" method="post"> 

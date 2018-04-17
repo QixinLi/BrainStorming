@@ -34,9 +34,9 @@ function changeWindowAuto(){
                 "left":left+"px"
             });
 	}
-        $("#bdshare").css({
+        $(".bdsharebuttonbox").css({
             "top":panelwidth*1.408333,
-            "left":panelwidth*0.086111
+            "left":panelwidth*0.226111
         });
         $("#shareImg").css({
             "top":panelwidth*0.1638889,

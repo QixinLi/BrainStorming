@@ -52,6 +52,7 @@ public class insertNewQues extends HttpServlet {
              // 获取当前域名下的cookies，是一个数组
             cookies = request.getCookies();
             String name="";
+            String tel="";
             if(cookies!=null)
             {
                 for(int i=0;i<cookies.length;i++)
@@ -60,6 +61,10 @@ public class insertNewQues extends HttpServlet {
                     if(("name").equals(cookie.getName()))
                     {
                         name=URLDecoder.decode(cookie.getValue(),"UTF-8");
+                    }
+                    if(("tel").equals(cookie.getName()))
+                    {
+                        tel=cookie.getValue();
                     }
                 }
             }
@@ -71,7 +76,16 @@ public class insertNewQues extends HttpServlet {
                     +"\",\"optionC\":\""+optionC
                     +"\",\"optionD\":\""+optionD
                     +"\",\"user\":\""+name+"\"}\r\n";
-            FileWriter writer = new FileWriter("C:\\Questions.txt", true);  
+            FileWriter writer;
+            if(tel.equals("admin"))
+            {
+                writer = new FileWriter("C:\\Questions.txt", true);  
+            }
+            else
+            {
+                writer = new FileWriter("C:\\QuestionsCh.txt", true);  
+            }
+            
             writer.write(str);  
             writer.close();
             response.sendRedirect("insertNewQues.jsp?success=1");

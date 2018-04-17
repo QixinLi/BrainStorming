@@ -100,7 +100,12 @@ body {
 }
 #loginDiv{
     position:absolute;
+}
+#loginBg{
+    height:100%;
+    width:100%;
     background-color: orange;
+    opacity:0.5;
 }
 #userDetails{
     position:absolute;
@@ -116,6 +121,9 @@ body {
     position:absolute;
 }
 #sendReport{
+    position:absolute;
+}
+#getHb{
     position:absolute;
 }
 #userimg{

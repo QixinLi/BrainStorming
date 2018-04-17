@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>欢迎来到头脑风暴</title>
         <link type="text/css" rel="stylesheet" href="css/welcomePage.css" />
-        <script type="text/javascript" src="js/welcomPage.js"></script>
+        
         <!--弹出层 开始 -->
 	<link type="text/css" rel="stylesheet" href="css/zdialog.css" />
 	<script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
@@ -46,18 +46,20 @@
     %>
     <body onload="AutoLoad()" onresize="changeWindowAuto()">
         <div id="loginDiv">
+            <div id="loginBg"></div>
             <div id="userDetails">
                 <div id="userimg">
                     <img src="images/logo.jpg">
                 </div>
                 <p id="username">昵称：</p>
                 <p id="userscore">积分：</p>
-                <a id="welcomemsg">超级蓝月，脱胎换"古"</a>
+                <a id="welcomemsg">头脑风暴，脑力沙龙</a>
             </div>
             <div id="btPanel">
                 <button id="start" class="bubbly-button">开始游戏</button>
                 <button id="newQues" class="bubbly-button">我要出题</button>
                 <button id="sendReport" class="bubbly-button">反馈问题</button>
+                <button id="getHb" class="bubbly-button">红包拿来</button>
             </div>
         </div>
         <script>
