@@ -8,15 +8,15 @@ function AutoLoad(){
 }
 
 function changeWindowAuto(){
-	var width=$(document.body).width();
-	var height=$(window).height();
+	var width=$(document).width();
+	var height=$(document).height();
 	var panelwidth;
 	if(width<360)
 	{
             panelwidth=width;
             $("#loginDiv").css({
 		"width":width,
-		"height":height,
+		"height":"636px",
 		"top":"0px",
 		"left":"0px"
             });
@@ -25,12 +25,18 @@ function changeWindowAuto(){
 	{
             panelwidth=360;
             var left=(width-360)/2;
-            var top =(height-636)/2;
+            var top;
+            if(height<636){
+                top="0px";
+            }
+            else{
+                top = (height-636)/2;
+            }
             $("#loginDiv").css({
                 "width":"360px",
                 "height":"636px",
-                "top":top+"px",
-                "left":left+"px"
+                "top":top,
+                "left":left
             });
 	}
         $("#userDetails").css({
@@ -84,10 +90,23 @@ function changeWindowAuto(){
 	});
 }
 
-function alerts()
+function callBack(data)
+{
+    if(data !== "null")
+    {
+        $("#touxiang").attr("src",data);
+    }
+}
+
+function alertsBack()
 {
 	$.DialogByZ.Close();
         $(window).attr('location','login.jsp');
+}
+
+function alerts()
+{
+	$.DialogByZ.Close();
 }
 
 
@@ -142,17 +161,4 @@ var animateButtonGetHb = function(e) {
     $(window).attr('location','alipay.html');
   },700);
 };
-
-var start = document.getElementById("start");
-start.addEventListener('click',animateButtonStart,false);
-
-var newQues = document.getElementById("newQues");
-newQues.addEventListener('click',animateButtonInsertNewQues,false);
-
-var sendReport = document.getElementById("sendReport");
-sendReport.addEventListener('click',animateButtonSendReport,false);
-
-
-var getHb = document.getElementById("getHb");
-getHb.addEventListener('click',animateButtonGetHb,false);
 

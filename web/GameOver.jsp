@@ -47,6 +47,8 @@ String score;
         shareMsg="一道题也没有答对~革命尚未成功，同志仍需努力~";
     }
 </script>
+<script type="text/javascript" id="bdshare_js" data="type=tools&mini=1" ></script> 
+<script type="text/javascript" id="bdshell_js"></script> 
     <body onload="AutoLoad()" onresize="changeWindowAuto()">
         <div id="mainPanel" class="absol">
             
@@ -68,9 +70,10 @@ String score;
         </div>
         
         
-<script type="text/javascript" id="bdshare_js" data="type=tools&mini=1" ></script> 
-<script type="text/javascript" id="bdshell_js"></script> 
+
 <script>
+    $("#shareMsg").text(shareMsg);
+    
     var bddesc="我这次在头脑风暴连续答对"+score+"题。你也来试试吧！";
 	window._bd_share_config = {
 		common : {

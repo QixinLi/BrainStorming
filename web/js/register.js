@@ -3,33 +3,39 @@ function AutoLoad(){
 }
 
 function changeWindowAuto(){
-	var width=$(window).width();
-	var height=$(window).height();
+	var width=$(document).width();
+	var height=$(document).height();
 	var panelwidth;
 	$("#bg").css({
 		"height":height
 	});
 
-	if(width>360)
+if(width<360)
 	{
-		panelwidth=360;
-		var left=(width-360)/2;
-		var top=(height-636)/2;
-		$("#login").css({
-			"width":"360px",
-			"height":"636px",
-			"top":top+"px",
-			"left":left+"px"
-		});
+            panelwidth=width;
+            $("#login").css({
+		"width":width,
+		"height":"636px",
+		"top":"0px",
+		"left":"0px"
+            });
 	}
 	else
 	{
-		panelwidth=width;
-		$("#login").css({
-			"width":width,
-			"height":height,
-			"top":"0px",
-			"left":"0px"
+            panelwidth=360;
+                var left=(width-360)/2;
+                var top;
+                if(height<636){
+                    top="0px";
+                }
+                else{
+                    top =(height-636)/2;
+                }
+                $("#login").css({
+                    "width":"360px",
+                    "height":"636px",
+                    "top":top+"px",
+                    "left":left+"px"
 		});
 	}
 
@@ -77,8 +83,6 @@ function changeWindowAuto(){
 function clickSignInBt(){
 	$(window).attr('location','login.jsp');
 }
-
-
 function alerts()
 {
 	$.DialogByZ.Close();
