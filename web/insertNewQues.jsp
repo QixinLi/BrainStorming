@@ -58,7 +58,7 @@
             $.DialogByZ.Close();
         }
         function isContainsErrStr(str) {
-            var index str.indexOf("{")+str.indexOf("}")+str.indexOf("\"")+str.indexOf(",");
+            var index=str.indexOf("{")+str.indexOf("}")+str.indexOf("\"")+str.indexOf(",");
             if(index>=0)
             {
                 return true;
@@ -179,7 +179,7 @@
             var returnMSG=getQueryString("success");
             if(returnMSG!=="")
             {
-                $("#returnMSG").text("插入成功！");
+                $("#returnMSG").text("问题成功提交，等待审核！");
             }
         })(); 
     </script>

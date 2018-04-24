@@ -13,14 +13,20 @@
         
         <script src='<%=request.getContextPath()%>/dwr/engine.js'></script>
         <script src='<%=request.getContextPath()%>/dwr/interface/getUserImg.js'></script>
+        <script src='<%=request.getContextPath()%>/dwr/interface/getUserMsg.js'></script>
         <script type='text/javascript' src='<%=request.getContextPath()%>/dwr/util.js'></script>
         
         <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
-        <link type="text/css" rel="stylesheet" href="css/welcomePage.css" />
+        <script type="text/javascript" src='js/jquery-ui.min.js'></script>
+        <link type="text/css" rel="stylesheet" href="css/welcomePage.css"/>
         <!--弹出层 开始 -->
 	<link type="text/css" rel="stylesheet" href="css/zdialog.css" />
 	<script type="text/javascript" src="js/zdialog.js"></script>
 	<!--弹出层 结束 -->
+        <link rel='stylesheet prefetch' href='http://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css'>
+        <link type="text/css" rel="stylesheet" href="css/mailmsg.css" />
+	
+        
         <script type="text/javascript" src="js/welcomePage.js"></script>
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     </head>
@@ -58,12 +64,15 @@
         <div id="loginDiv">
             <div id="loginBg"></div>
             <div id="userDetails">
+                <div id="mail" onclick="showMailandGetMsg()">
+                    <img src="images/mail.png">
+                </div>
                 <label id="userimg">
                     <img  id="touxiang" src="images/logo.jpg">
                     <input type="hidden" id="img" name="uploadImg"/>  
                     <input type="file" id="uploadImg" onchange="selectImg(this);" accept="image/*"/>  
                 </label>
-                <p id="username">昵称：</p>
+                <p id="username" onclick="gotoAdminPage()">昵称：</p>
                 <p id="userscore">积分：</p>
                 <a id="welcomemsg">头脑风暴，脑力沙龙</a>
             </div>
@@ -74,21 +83,35 @@
                 <button id="getHb" class="bubbly-button">红包拿来</button>
             </div>
         </div>
+        <div id="mailMsg" class="chat">
+            <header>
+                <h2 class='title'>我的消息</h2>
+            </header>
+            <div class='body' id="mymsg">
+
+            </div>
+            <footer>
+                <a onclick="readAllMsg()">全部已读</a><a onclick="showMailMsg()">关闭</a>
+            </footer>
+        </div>
+        <script type="text/javascript" src="js/mailmsg.js"></script>
         <script>
+            var username = '<%= username %>';
+            var tel = '<%= tel %>';
+            var score = <%= score %>;
 (function(){
-    var username = '<%= username %>';
-    var tel = '<%= tel %>';
-    var score = <%= score %>;
         if( username !== "null" && tel !== "null")
         {
             $("#username").text("昵称："+username);
             $("#userscore").text("积分："+score);
-            getUserImg.getUserImgsrc(tel,callBack);
+            getUserImg.getUserImgsrc(tel,callBackimg);
+            
         }
         else
         {
             $.DialogByZ.Alert({Title:"提示",Content:"登录信息失效，请重新登录！",BtnL:"确认",FunL:alertsBack});
         }
+        
 })(); 
 var start = document.getElementById("start");
 start.addEventListener('click',animateButtonStart,false);

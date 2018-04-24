@@ -32,8 +32,9 @@ String username="null";
         iscorrect="0";
 %> 
 <div style="display: none">
-    介系你没有玩过的船新版本
-    你会爱向介款游戏
+    介系你没有玩过的船新版本<br/>
+    介需体验三分钟，你也会干我一样<br/>
+    爱向介款游戏<br/>
 </div>
     
     <body onload="AutoLoad()" onresize="changeWindowAuto()">

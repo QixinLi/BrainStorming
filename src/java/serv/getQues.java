@@ -24,7 +24,7 @@ public class getQues {
     public int QuesNo;
     public boolean setQues() throws FileNotFoundException, IOException
     {
-        InputStreamReader reader = new InputStreamReader(new FileInputStream("C:\\Questions.txt")); // 建立一个输入流对象reader  
+        InputStreamReader reader = new InputStreamReader(new FileInputStream(STATIC.mdir+"Questions.txt")); // 建立一个输入流对象reader  
         BufferedReader br = new BufferedReader(reader); // 建立一个对象，它把文件内容转成计算机能读懂的语言  
         String line = "";  
         String str="";
@@ -33,13 +33,12 @@ public class getQues {
             str+=line+"\n";
         }while(line != null);
         String jsondata[]=str.split("\n");
-        this.numofQues=jsondata.length-1;
+        this.numofQues=jsondata.length-2;
         myques=new Ques[numofQues];
         if(numofQues!=0)
         {
             for(int i=0;i<numofQues;i++)
             {
-
                     JSONObject jsonObject =JSONObject.fromObject(jsondata[i]);
                     String title=jsonObject.getString("title");
                     String classes=jsonObject.getString("classes");
@@ -48,7 +47,7 @@ public class getQues {
                     String optionC=jsonObject.getString("optionC");
                     String optionD=jsonObject.getString("optionD");
                     String user=jsonObject.getString("user");
-                    myques[i]=new Ques(title,classes,optionA,optionB,optionC,optionD,user);
+                    myques[i]=new Ques(title,classes,optionA,optionB,optionC,optionD,user,true);
             }
         }
         else
@@ -94,11 +93,15 @@ class Ques{
     public Ques()
     {
     }
-    public Ques(String title,String classes,String A,String B,String C,String D,String user){
+    public Ques(String title,String classes,String A,String B,String C,String D,String user,boolean flag){
         this.title=title;
         this.classes=classes;
-        Random ra=new Random();
-        int num=(ra.nextInt(4)+1);
+        int num=1;
+        if (flag==true)
+        {
+            Random ra=new Random();
+            num=(ra.nextInt(4)+1);
+        }
         switch(num)
         {
             case 1:

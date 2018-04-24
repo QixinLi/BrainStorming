@@ -4,7 +4,8 @@
  * and open the template in the editor.
  */
 function AutoLoad(){
-	changeWindowAuto();
+    $("#mailMsg").hide();
+    changeWindowAuto();
 }
 
 function changeWindowAuto(){
@@ -51,21 +52,26 @@ function changeWindowAuto(){
                 "right":panelwidth*0.105556,
                 "bottom":panelwidth*0.02222
 	});
+        $("#mail").css({
+            "width":panelwidth*0.0972222,
+            "left":panelwidth*-0.055556,
+            "top":panelwidth*-0.02222
+	});
         $("#start").css({
 		"left":panelwidth*0.2138889,
-		"top":panelwidth*-0.175
+		"top":panelwidth*-0.2889
 	});
         $("#newQues").css({
 		"left":panelwidth*0.2138889,
-		"top":panelwidth*0.0638889
+		"top":panelwidth*-0.05
 	});
         $("#sendReport").css({
 		"left":panelwidth*0.2138889,
-		"top":panelwidth*0.308333
+		"top":panelwidth*0.186111
 	});
         $("#getHb").css({
 		"left":panelwidth*0.2138889,
-		"top":panelwidth*0.55
+		"top":panelwidth*0.430555
 	});
         $("#userimg").css({
 		"left":panelwidth*0.069444,
@@ -90,11 +96,28 @@ function changeWindowAuto(){
 	});
 }
 
-function callBack(data)
+function callBackimg(data)
 {
     if(data !== "null")
     {
         $("#touxiang").attr("src",data);
+    }
+    else
+    {
+        $("#touxiang").attr("images/logo.jpg",data);
+    }
+}
+function callBackmsg(data)
+{
+    if(data !== "")
+    {
+        $("#mymsg").empty();
+        $("#mymsg").append(data);
+    }
+    else
+    {
+        $("#mymsg").empty();
+        $("#mymsg").append("<br><br>什么消息也没有~<br><br><br>");
     }
 }
 
@@ -162,3 +185,61 @@ var animateButtonGetHb = function(e) {
   },700);
 };
 
+function getCookie(name)
+{
+    var arr,reg=new RegExp("(^| )"+name+"=([^;]*)(;|$)");
+    if(arr=document.cookie.match(reg))
+        return unescape(arr[2]);
+    else
+        return null;
+}
+
+clicktime=1;
+function gotoAdminPage(){
+    if(clicktime>=10)//点击10次进入管理员界面
+    {
+        var username = getCookie("tel");
+        if(username === "admin"){
+            $(window).attr('location','examine.jsp');
+        }
+    }
+    else
+    {
+        clicktime++;
+    }
+}
+
+function showMailandGetMsg()
+{
+    getUserMsg.getUserMsgstr(tel,callBackmsg);
+    $("#mailMsg").toggle();
+}
+
+function showMailMsg()
+{
+    $("#mailMsg").toggle();
+}
+
+function readAllMsg()
+{
+    $.post(   
+            "readAllMsg",
+    function(data) {  
+        var ret = data.ret;
+        if(ret === "false")
+        {
+            $.DialogByZ.Alert({Title:"提示",Content:"出错啦！",BtnL:"确认",FunL:alerts});
+        }
+        else if(ret === "ok")
+        {
+            showMailMsg();
+        }
+        else if(ret === "null")
+        {
+            $.DialogByZ.Alert({Title:"提示",Content:"没有未读的消息！",BtnL:"确认",FunL:alertsBack});
+        }
+        else{
+            showMailMsg();
+        }
+    }, "json"); 
+}

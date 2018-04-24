@@ -74,20 +74,23 @@ public class insertNewQues extends HttpServlet {
                     +"\",\"optionA\":\""+optionA
                     +"\",\"optionB\":\""+optionB
                     +"\",\"optionC\":\""+optionC
-                    +"\",\"optionD\":\""+optionD
-                    +"\",\"user\":\""+name+"\"}\r\n";
+                    +"\",\"optionD\":\""+optionD 
+                    +"\",\"user\":\""+tel+"\"}\r\n";
             FileWriter writer;
             if(tel.equals("admin"))
             {
-                writer = new FileWriter("C:\\Questions.txt", true);  
+                writer = new FileWriter(STATIC.mdir+"Questions.txt", true);  
+                writer.write(str); 
             }
             else
             {
-                writer = new FileWriter("C:\\QuestionsCh.txt", true);  
+                writer = new FileWriter(STATIC.mdir+"QuestionsCh.txt", true);  
+                writer.write(str); 
+                message mg = new message("admin",tel,"用户<"+tel+">提交了新问题，赶紧看看吧！", "examineQ_notice","false");
+                mg.messageSend();
             }
-            
-            writer.write(str);  
             writer.close();
+            
             response.sendRedirect("insertNewQues.jsp?success=1");
         }
     }
