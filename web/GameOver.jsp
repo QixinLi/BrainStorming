@@ -10,8 +10,9 @@
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>游戏结束</title>
-        <link type="text/css" rel="stylesheet"  href="css/GameOver.css" />
         <script type="text/javascript" src="js/GameOver.js"></script>
+        <link type="text/css" rel="stylesheet"  href="css/GameOver.css" />
+        
         <!--弹出层 开始 -->
         <link type="text/css" rel="stylesheet"  href="css/reset.css" />
 	<link type="text/css" rel="stylesheet" href="css/zdialog.css" />

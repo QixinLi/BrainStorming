@@ -3,13 +3,14 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/H:/j2ee/项目/AnswerSheet/web/GameOver.jsp</file>
             <file>file:/H:/j2ee/项目/AnswerSheet/src/java/serv/STATIC.java</file>
             <file>file:/H:/j2ee/项目/AnswerSheet/src/java/serv/insertNewQues.java</file>
-            <file>file:/H:/j2ee/项目/AnswerSheet/web/examine.jsp</file>
             <file>file:/H:/j2ee/项目/AnswerSheet/src/java/serv/examineQ.java</file>
-            <file>file:/H:/j2ee/项目/AnswerSheet/web/WEB-INF/web.xml</file>
             <file>file:/H:/j2ee/项目/AnswerSheet/web/js/examine.js</file>
-            <file>file:/H:/j2ee/项目/AnswerSheet/src/java/serv/Feedback.java</file>
+            <file>file:/H:/j2ee/项目/AnswerSheet/web/insertNewQues.jsp</file>
+            <file>file:/H:/j2ee/项目/AnswerSheet/src/java/serv/getQues.java</file>
+            <file>file:/H:/j2ee/项目/AnswerSheet/web/js/Start.js</file>
         </group>
     </open-files>
 </project-private>

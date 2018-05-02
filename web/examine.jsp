@@ -81,13 +81,13 @@
     username = '<%= username %>';
     score = <%= score %>;
 
-    if( username !== "null")
+    if( username === "admin")
     {
         examineQ.LoadOneQues(callBack);
     }
     else
     {
-        $.DialogByZ.Alert({Title:"提示",Content:"登录信息失效，请重新登录！",BtnL:"确认",FunL:alertsTologin});
+        $.DialogByZ.Alert({Title:"提示",Content:"您不是管理员，或者登录信息已经失效。请重新登录。",BtnL:"确认",FunL:alertsTologin});
     }
 })(); 
 </script>

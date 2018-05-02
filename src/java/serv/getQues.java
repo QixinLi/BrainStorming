@@ -33,7 +33,7 @@ public class getQues {
             str+=line+"\n";
         }while(line != null);
         String jsondata[]=str.split("\n");
-        this.numofQues=jsondata.length-2;
+        this.numofQues=jsondata.length-1;
         myques=new Ques[numofQues];
         if(numofQues!=0)
         {
@@ -89,6 +89,7 @@ class Ques{
     public Option optionC;
     public Option optionD;
     public String user="";
+    public String name="";
     public String correctAns="";
     public Ques()
     {
@@ -135,6 +136,50 @@ class Ques{
         }
         this.user=user;
     }
+    public Ques(String title,String classes,String A,String B,String C,String D,String name,String user,boolean flag){
+        this.title=title;
+        this.classes=classes;
+        int num=1;
+        if (flag==true)
+        {
+            Random ra=new Random();
+            num=(ra.nextInt(4)+1);
+        }
+        switch(num)
+        {
+            case 1:
+                this.optionA=new Option(A,true);
+                this.optionB=new Option(B,false);
+                this.optionC=new Option(C,false);
+                this.optionD=new Option(D,false);
+                this.correctAns="A";
+                break;
+            case 2:
+                this.optionA=new Option(B,false);
+                this.optionB=new Option(A,true);
+                this.optionC=new Option(C,false);
+                this.optionD=new Option(D,false);
+                this.correctAns="B";
+                break;
+            case 3:
+                this.optionA=new Option(C,false);
+                this.optionB=new Option(B,false);
+                this.optionC=new Option(A,true);
+                this.optionD=new Option(D,false);
+                this.correctAns="C";
+                break;
+            case 4:
+                this.optionA=new Option(D,false);
+                this.optionB=new Option(B,false);
+                this.optionC=new Option(C,false);
+                this.optionD=new Option(A,true);
+                this.correctAns="D";
+                break;
+        }
+        this.user=user;
+        this.name=name;
+    }
+
 }
 
 class Option{

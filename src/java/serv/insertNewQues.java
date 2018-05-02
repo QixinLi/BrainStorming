@@ -75,6 +75,7 @@ public class insertNewQues extends HttpServlet {
                     +"\",\"optionB\":\""+optionB
                     +"\",\"optionC\":\""+optionC
                     +"\",\"optionD\":\""+optionD 
+                    +"\",\"name\":\""+name
                     +"\",\"user\":\""+tel+"\"}\r\n";
             FileWriter writer;
             if(tel.equals("admin"))
@@ -86,7 +87,7 @@ public class insertNewQues extends HttpServlet {
             {
                 writer = new FileWriter(STATIC.mdir+"QuestionsCh.txt", true);  
                 writer.write(str); 
-                message mg = new message("admin",tel,"用户<"+tel+">提交了新问题，赶紧看看吧！", "examineQ_notice","false");
+                message mg = new message("admin",tel,"用户<"+name+">提交了新问题<"+title+">，赶紧看看吧！", "examineQ_notice","false");
                 mg.messageSend();
             }
             writer.close();

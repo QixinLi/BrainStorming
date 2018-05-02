@@ -64,9 +64,10 @@ public class examineQ {
                     String optionB=jsonObject.getString("optionB");
                     String optionC=jsonObject.getString("optionC");
                     String optionD=jsonObject.getString("optionD");
+                    String name=jsonObject.getString("name");
                     String user=jsonObject.getString("user");
                     //题目构造
-                    myques[i]=new Ques(title,classes,optionA,optionB,optionC,optionD,user,false);
+                    myques[i]=new Ques(title,classes,optionA,optionB,optionC,optionD,name,user,false);
             }
         }
         else
@@ -100,6 +101,7 @@ public class examineQ {
                         myques[QuesNo].optionB.option+"##"+
                         myques[QuesNo].optionC.option+"##"+
                         myques[QuesNo].optionD.option+"##"+
+                        myques[QuesNo].name+"##"+
                         myques[QuesNo].user+"##"+
                         myques[QuesNo].correctAns;
                 return str;
@@ -132,6 +134,7 @@ public class examineQ {
                         myques[no].optionB.option+"##"+
                         myques[no].optionC.option+"##"+
                         myques[no].optionD.option+"##"+
+                        myques[QuesNo].name+"##"+
                         myques[no].user+"##"+
                         myques[no].correctAns;
                 return str;
@@ -173,21 +176,32 @@ public class examineQ {
     {
         if(setQues())
         {
-            System.out.println("写入问题");
-            System.out.println(start);
+            JSONObject jsonObject =JSONObject.fromObject(clonejsonString[start]);
+            String title=jsonObject.getString("title");
+            String classes=jsonObject.getString("classes");
+            String optionA=jsonObject.getString("optionA");
+            String optionB=jsonObject.getString("optionB");
+            String optionC=jsonObject.getString("optionC");
+            String optionD=jsonObject.getString("optionD");
+            String name=jsonObject.getString("name");
+            String user=jsonObject.getString("user");
+
             FileWriter writer = new FileWriter(STATIC.mdir+"Questions.txt",true);
-            String new_questionString=this.clonejsonString[start]+"\r\n";
+            String new_questionString="{\"title\":\""+title
+                    +"\",\"classes\":\""+classes
+                    +"\",\"optionA\":\""+optionA
+                    +"\",\"optionB\":\""+optionB
+                    +"\",\"optionC\":\""+optionC
+                    +"\",\"optionD\":\""+optionD 
+                    +"\",\"user\":\""+name+"\"}\r\n";
             writer.write(new_questionString);
             writer.close();
         
             //发送通知消息
-            JSONObject jsonObject =JSONObject.fromObject(clonejsonString[start]);
-            String user=jsonObject.getString("user");
-            String title=jsonObject.getString("title");
-            String content="您的问题<"+title+">已经审核通过，感谢配合！";          
+            
+            String content="您的问题<"+title+">已经审核通过，感谢您的支持！";          
             message mg = new message(user, "admin", content, "examineQ_notice","false");
             mg.messageSend();
-            System.out.println("审核通过");
         }
     }
     //未通过审核

@@ -10,5 +10,5 @@ package serv;
  * @author lee
  */
 public class STATIC {
-    static public String mdir="C:\\TNFB\\";
+    static public String mdir="D:\\TNFB\\";
 }

@@ -15,12 +15,12 @@ function changeWindowAuto(){
 	var width=$(document.body).width();
 	var height=$(window).height();
 	var panelwidth;
-	if(width<360)
+if(width<360)
 	{
             panelwidth=width;
             $("#gameDiv").css({
 		"width":width,
-		"height":height,
+		"height":"636px",
 		"top":"0px",
 		"left":"0px"
             });
@@ -29,7 +29,13 @@ function changeWindowAuto(){
 	{
             panelwidth=360;
             var left=(width-360)/2;
-            var top =(height-636)/2;
+            var top;
+            if(height<636){
+                top="0px";
+            }
+            else{
+                top =(height-636)/2;
+            }
             $("#gameDiv").css({
                 "width":"360px",
                 "height":"636px",
@@ -181,5 +187,12 @@ function saveCallBack(data)
     if (data!==-1)
     {
         alert("更新成功");
+        $(window).attr('location','welcomePage.jsp');
     }
+}
+
+function alertsTologin()
+{
+	$.DialogByZ.Close();
+        $(window).attr('location','login.jsp');
 }
