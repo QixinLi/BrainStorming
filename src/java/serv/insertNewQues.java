@@ -16,7 +16,7 @@ import java.io.*;
 import javax.servlet.http.Cookie;
 /**
  *
- * @author lee
+ * @author princess
  */
 public class insertNewQues extends HttpServlet {
 

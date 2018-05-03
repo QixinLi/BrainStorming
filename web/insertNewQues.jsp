@@ -1,7 +1,7 @@
 <%-- 
     Document   : insertNewQues
     Created on : 2018-4-3, 13:32:26
-    Author     : lee
+    Author     : princess
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>

@@ -17,7 +17,7 @@ import javax.servlet.http.HttpServletResponse;
 
 /**
  *
- * @author lee
+ * @author princess
  */
 public class Feedback extends HttpServlet {
 
