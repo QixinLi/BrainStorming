@@ -57,8 +57,15 @@ String username="null";
                 <input type="submit" id="signin" class="absol" value="登录">
 
                 <div id="signup" class="absol">还没有账号？ <span style="color:#ffffff" onclick="clickSignUpBt()">马上注册</span> </div>
+                <div id="beian" class="absol" >
+                    <a  style="position: relative;color: #999" rel="nofollow"target="_blank"  href="http://www.miitbeian.gov.cn/">苏ICP备18023434号</a>
+                    <img width="13" style="position: relative;width:13px;height:16px" height="16" src="http://ss.bdimg.com/static/superman/img/copy_rignt_24.png">
+                </div>
+                
             </div>
+            
         </form>
+        <!--<ul><img src="http://www.beian.gov.cn/img/ghs.png" alt="备案标识"/><a rel="nofollow"target="_blank"href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32058202010228&token=2be051c1-22dd-44ec-9f4b-d41155f2d855">江公网安备 32058202010228 号</a></ul>-->
         
 <script>
 (function(){

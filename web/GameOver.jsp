@@ -68,6 +68,10 @@ String score;
                 <a class="bds_weixin" data-cmd="weixin"></a>
                 <a class="bds_more" data-cmd="more">更多</a>
             </div>
+            <div id="beian" class="absol" >
+                <a  style="position: relative;color: #999" rel="nofollow"target="_blank"  href="http://www.miitbeian.gov.cn/">苏ICP备18023434号</a>
+                <img width="13" style="position: relative;width:13px;height:16px" height="16" src="http://ss.bdimg.com/static/superman/img/copy_rignt_24.png">
+            </div>
         </div>
         
         

@@ -82,6 +82,10 @@
                 <button id="sendReport" class="bubbly-button">反馈问题</button>
                 <button id="getHb" class="bubbly-button">红包拿来</button>
             </div>
+            <div id="beian" style="position: absolute" >
+                <a  style="position: relative;color: #999" rel="nofollow"target="_blank"  href="http://www.miitbeian.gov.cn/">苏ICP备18023434号</a>
+                <img width="13" style="position: relative;width:13px;height:16px" height="16" src="http://ss.bdimg.com/static/superman/img/copy_rignt_24.png">
+            </div>
         </div>
         <div id="mailMsg" class="chat">
             <header>

@@ -78,6 +78,10 @@ if(width<360)
 		"left":panelwidth*0.258333,
 		"font-size":panelwidth*0.04444
 	});
+        $("#beian").css({
+            "top":panelwidth*1.763889,
+            "left":panelwidth*0.2805556
+        })
 }
 
 function clickSignInBt(){

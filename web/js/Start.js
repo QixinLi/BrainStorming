@@ -87,6 +87,10 @@ function changeWindowAuto(){
             "bottom":panelwidth*1.408333,
             "font-size":panelwidth*0.24444
         });
+        $("#beian").css({
+            "top":panelwidth*1.763889,
+            "left":panelwidth*0.2805556
+        })
 
 }
 function alertsTologin()

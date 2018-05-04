@@ -105,6 +105,10 @@ if(width<360)
             "right":panelwidth*-0.5,
             "bottom":panelwidth*0.808333
         });
+        $("#beian").css({
+            "top":panelwidth*1.763889,
+            "left":panelwidth*0.2805556
+        })
 }
 
 function callBack(data)

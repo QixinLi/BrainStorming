@@ -94,6 +94,10 @@ function changeWindowAuto(){
 		"top":panelwidth*0.34444,
                 "font-size":panelwidth*0.066667
 	});
+        $("#beian").css({
+            "top":panelwidth*1.688889,
+            "left":panelwidth*0.2805556
+        })
 }
 
 function callBackimg(data)

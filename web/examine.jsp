@@ -74,6 +74,10 @@
             <button id="optC" class="absol button" >选项C</button>
             <button id="optD" class="absol button" >选项D</button>
             <div id="user" class="absol">内容来源于网络</div>
+            <div id="beian" class="absol" >
+                <a  style="position: relative;color: #999" rel="nofollow"target="_blank"  href="http://www.miitbeian.gov.cn/">苏ICP备18023434号</a>
+                <img width="13" style="position: relative;width:13px;height:16px" height="16" src="http://ss.bdimg.com/static/superman/img/copy_rignt_24.png">
+            </div>
         </div>
 <script>
 <!-- 向服务器请求数据-->

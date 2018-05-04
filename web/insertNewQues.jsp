@@ -9,7 +9,7 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>题目插入接口</title>
+        <title>我要出题</title>
         <!--弹出层 开始 -->
         <link type="text/css" rel="stylesheet"  href="css/reset.css" />
 	<link type="text/css" rel="stylesheet" href="css/zdialog.css" />
@@ -174,6 +174,11 @@
             <b>娱乐</b>：电影、电视、音乐、动漫、游戏<br/>
             <b>生活</b>：常识、世界、日常、健康、饮食<br/>
         </form>
+        <br/><br/><br/><br/><br/>
+        <div id="beian" class="absol" >
+            <a  style="position: relative;color: #999" rel="nofollow"target="_blank"  href="http://www.miitbeian.gov.cn/">苏ICP备18023434号</a>
+            <img width="13" style="position: relative;width:13px;height:16px" height="16" src="http://ss.bdimg.com/static/superman/img/copy_rignt_24.png">
+        </div>
     <script>
         (function(){
             var returnMSG=getQueryString("success");

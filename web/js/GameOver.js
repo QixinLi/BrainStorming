@@ -62,6 +62,10 @@ function changeWindowAuto(){
             "right":panelwidth*0.2416667,
             "font-size":panelwidth*0.05555
         });
+        $("#beian").css({
+            "top":panelwidth*1.763889,
+            "left":panelwidth*0.2805556
+        })
 }
 
 function clickBack(){
