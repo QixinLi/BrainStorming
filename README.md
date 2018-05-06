@@ -1,9 +1,12 @@
 # BrainStorming
 jsp_servlet_dwr框架下的头脑风暴游戏
 
-[项目网址Demo](http://47.96.162.8/AnswerSheet/)
+[项目网址](http://tnfb.goodmanlee.top/)
 
 # 更新日记
+
+### 2018/5/5
+<li>备案成功，添加底部备案号。并将地址映射至域名。
 
 ### 2018/5/2
 优化了一些细节，处理了一些bug
