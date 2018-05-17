@@ -41,7 +41,7 @@ public class login extends HttpServlet {
             String username=null;
             int score;
             String DBDRIVER="com.mysql.jdbc.Driver";
-            String DBURL="jdbc:mysql://47.96.162.8:3306/AS?useUnicode=true&characterEncoding=utf-8";
+            String DBURL="jdbc:mysql://47.96.162.8:3306/AS?useUnicode=true&characterEncoding=utf-8&useSSL=true";
             String DBUSER="Wangnima";
             String PASSWORD="Wangnima520";
 

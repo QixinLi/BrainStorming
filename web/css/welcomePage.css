@@ -105,76 +105,50 @@ body {
 }
 #loginDiv{
     position:absolute;
-    left:-1000px;
-    top:-1000px;
+    display:none;
 }
 #loginBg{
     height:100%;
     width:100%;
     background-color: orange;
     opacity:0.5;
-    left:-1000px;
-    top:-1000px;
 }
 #userDetails{
     position:absolute;
-    left:-1000px;
-    top:-1000px;
 }
 #btPanel{
     position:absolute;
-    left:-1000px;
-    top:-1000px;
-    
 }
 #start{
     position:absolute;
-    left:-1000px;
-    top:-1000px;
+    
 }
 #newQues{
     position:absolute;
-    left:-1000px;
-    top:-1000px;
+    
 }
 #sendReport{
     position:absolute;
-    left:-1000px;
-    top:-1000px;
 }
 #getHb{
     position:absolute;
-    left:-1000px;
-    top:-1000px;
 }
 #userimg{
     position:absolute;
-    left:-1000px;
-    top:-1000px;
 }
 #username{
     position:absolute;
-    left:-1000px;
-    top:-1000px;
 }
 #userscore{
     position:absolute;
-    left:-1000px;
-    top:-1000px;
 }
 #welcomemsg{
     position:absolute;
-    left:-1000px;
-    top:-1000px;
 }
 #mail{
     position: absolute;
-    left:-1000px;
-    top:-1000px;
 }
 
 #logout{
     position: absolute;
-    left:-1000px;
-    top:-1000px;
 }

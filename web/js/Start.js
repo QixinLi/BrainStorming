@@ -40,6 +40,7 @@ function changeWindowAuto(){
                 "left":left+"px"
             });
 	}
+        
         $("#title").css({
             "top":panelwidth*0.46388889,
             "left":panelwidth*0.119444,
@@ -91,6 +92,9 @@ function changeWindowAuto(){
             "top":panelwidth*1.763889,
             "left":panelwidth*0.2805556
         })
+        $(".absol").css({
+            "display":"inline"
+        });
 
 }
 function alertsTologin()

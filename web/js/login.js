@@ -90,7 +90,10 @@ function changeWindowAuto(){
         $("#beian").css({
             "top":panelwidth*1.763889,
             "left":panelwidth*0.2805556
-        })
+        });
+        $(".absol").css({
+            "display":"inline"
+        });
         
 }
 function alerts()

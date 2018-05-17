@@ -11,7 +11,7 @@
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
         <title>头脑风暴</title>
         <link type="text/css" rel="stylesheet"  href="css/login.css" />
-        
+        <script type="text/javascript" src="js/login.js"></script>
         <!--弹出层 开始 -->
         <link type="text/css" rel="stylesheet"  href="css/reset.css" />
 	<link type="text/css" rel="stylesheet" href="css/zdialog.css" />
@@ -66,7 +66,7 @@ String username="null";
             
         </form>
         <!--<ul><img src="http://www.beian.gov.cn/img/ghs.png" alt="备案标识"/><a rel="nofollow"target="_blank"href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=32058202010228&token=2be051c1-22dd-44ec-9f4b-d41155f2d855">江公网安备 32058202010228 号</a></ul>-->
-<script type="text/javascript" src="js/login.js"></script>
+
 <script>
 (function(){
     var username = '<%= username %>';

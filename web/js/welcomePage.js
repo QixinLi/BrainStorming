@@ -40,6 +40,9 @@ function changeWindowAuto(){
                 "left":left
             });
 	}
+        $("#loginDiv").css({
+            "display":"inline"
+        });
         $("#userDetails").css({
 		"height":panelwidth*0.463889,
 		"width":panelwidth*0.791667,

@@ -59,7 +59,7 @@ public class Feedback extends HttpServlet {
                     }
                 }
             }
-            message mg = new message("admin",tel,"用户<"+name+">提交了反馈<"+content+">", "feedback_notice","false");
+            message mg = new message("admin",tel,"用户“"+name+"”提交了反馈“"+content+"”", "feedback_notice","false");
             mg.messageSend();
             response.sendRedirect("feedback.jsp?success=1");
         }

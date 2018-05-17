@@ -199,7 +199,7 @@ public class examineQ {
         
             //发送通知消息
             
-            String content="您的问题<"+title+">已经审核通过，感谢您的支持！";          
+            String content="您的问题“"+title+"”已经审核通过，感谢您的支持！";          
             message mg = new message(user, "admin", content, "examineQ_notice","false");
             mg.messageSend();
         }
@@ -213,7 +213,7 @@ public class examineQ {
             JSONObject jsonObject =JSONObject.fromObject(clonejsonString[start]);
             String user=jsonObject.getString("user");
             String title=jsonObject.getString("title");
-            String content="很遗憾，您的问题<"+title+">未通过审核，请修改正确后重新提交！";
+            String content="很遗憾，您的问题“"+title+"”未通过审核，请修改正确后重新提交！";
             message mg = new message(user, "admin", content, "examineQ_notice","false");
             mg.messageSend();
         }
