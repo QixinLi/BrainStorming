@@ -33,7 +33,7 @@
                 border-bottom: 1px solid rgba(255, 255, 255, 0.2);
                 margin:10px 10px 10px 10px;
             }
-            #submit{
+            #submit,button{
                 background-color: #ff7800;
                 border-radius:30px;
                 border:none;
@@ -57,14 +57,29 @@
         {
             $.DialogByZ.Close();
         }
-         function addCheck(){  
+        function isContainsErrStr(str) {
+            var index=str.indexOf("{")+str.indexOf("}")+str.indexOf("\"")+str.indexOf(",");
+            if(index>=0)
+            {
+                return true;
+            }
+            else{
+                return false;
+            }
+        }
+        function addCheck(){  
             var title=document.getElementById("title").value;  
             if(title==""){  
             	$.DialogByZ.Alert({Title:"提示",Content:"不允许提交空反馈哦！",BtnL:"确认",FunL:alerts});
                 document.getElementById("title").focus();    
                 return false;  
             }
-             }  
+            else if(isContainsErrStr(title)){
+                $.DialogByZ.Alert({Title:"提示",Content:"内容包含违规字符！",BtnL:"确认",FunL:alerts});
+                document.getElementById("title").focus();    
+                return false;  
+            }
+        }  
         function validate(){  
             var flag = addCheck();  
             if(flag == false)  
@@ -74,11 +89,12 @@
     </script>
     
     <body>
+        <br><button style="width:120px" onclick="window.location='welcomePage.jsp'">←返回主页</button><br><br>
         <p id="returnMSG"></p>
         <form action ="Feedback" method="post" onsubmit="return validate()">
-        <b>为了让我们更好，请告诉我们您的宝贵意见：</b>
-        <input type="textarea" id="content" name="content"  rows="5" cols="20" placeholder="您的意见是我们进步的动力！"><br/>
-        <input type="submit" id="submit" value="提交"><br/>
+            <b>为了让我们更好，请告诉我们您的宝贵意见：</b>
+            <input type="textarea" id="content" name="content" style="height:200px"  rows="5" cols="20" placeholder="您的意见是我们进步的动力！"><br/>
+            <input type="submit" id="submit" value="提交"><br/>
         </form>
         <br/><br/><br/><br/><br/>
         <div id="beian" class="absol" >

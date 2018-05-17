@@ -8,6 +8,8 @@ img {
 }
 .absol{
 	position: absolute;
+        left:-1000px;
+        top:-1000px;
 }
 .button{
 	pointer-events: auto;

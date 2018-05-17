@@ -55,7 +55,7 @@ public class Feedback extends HttpServlet {
                 }
         }
         String str="{\"content\":\""+content+"\"}\r\n";
-        message mg = new message("admin",name,"用户<"+name+">提交了反馈<"+str+">", "feedback_notice","false");
+        message mg = new message("admin",name,"用户<"+name+">提交了反馈<"+content+">", "feedback_notice","false");
         mg.messageSend();
         FileWriter writer = new FileWriter(STATIC.mdir+"FeedBacks.txt", true);  
         writer.write(str);  

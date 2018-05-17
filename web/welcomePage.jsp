@@ -62,6 +62,7 @@
     %>
     <body onload="AutoLoad()" onresize="changeWindowAuto()">
         <div id="loginDiv">
+            
             <div id="loginBg"></div>
             <div id="userDetails">
                 <div id="mail" onclick="showMailandGetMsg()">
@@ -86,6 +87,7 @@
                 <a  style="position: relative;color: #999" rel="nofollow"target="_blank"  href="http://www.miitbeian.gov.cn/">苏ICP备18023434号</a>
                 <img width="13" style="position: relative;width:13px;height:16px" height="16" src="http://ss.bdimg.com/static/superman/img/copy_rignt_24.png">
             </div>
+            <button id="logout" onclick="window.location='login.jsp'">注销</button>
         </div>
         <div id="mailMsg" class="chat">
             <header>

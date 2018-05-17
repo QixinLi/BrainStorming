@@ -98,6 +98,10 @@ function changeWindowAuto(){
             "top":panelwidth*1.688889,
             "left":panelwidth*0.2805556
         })
+        $("#logout").css({
+            "left":panelwidth*0.838889,
+            "top":panelwidth*1.658333
+        })
 }
 
 function callBackimg(data)

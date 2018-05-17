@@ -25,6 +25,8 @@ body{
 
 .absol{
 	position: absolute;
+        left:-1000px;
+        top:-1000px;
 }
 #score{
     background-color: #ff7800;

@@ -33,7 +33,7 @@
                 border-bottom: 1px solid rgba(255, 255, 255, 0.2);
                 margin:10px 10px 10px 10px;
             }
-            #ok{
+            #ok,button{
                 background-color: #ff7800;
                 border-radius:30px;
                 border:none;
@@ -157,6 +157,7 @@
     </script>
     
     <body>
+        <br><button style="width:120px" onclick="window.location='welcomePage.jsp'">←返回主页</button><br><br>
         <p id="returnMSG"></p>
         <form action ="insertNewQues" method="post" onsubmit="return validate()">
             <input type="text" id="title" name="title" placeholder="问题主干"><br/>
