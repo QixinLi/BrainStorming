@@ -43,6 +43,7 @@ public class Feedback extends HttpServlet {
              // 获取当前域名下的cookies，是一个数组
             cookies = request.getCookies();
             String name="";
+            String tel="";
             if(cookies!=null)
             {
                 for(int i=0;i<cookies.length;i++)
@@ -52,15 +53,15 @@ public class Feedback extends HttpServlet {
                     {
                         name=URLDecoder.decode(cookie.getValue(),"UTF-8");
                     }
+                    if(("tel").equals(cookie.getName()))
+                    {
+                        tel=cookie.getValue();
+                    }
                 }
-        }
-        String str="{\"content\":\""+content+"\"}\r\n";
-        message mg = new message("admin",name,"用户<"+name+">提交了反馈<"+content+">", "feedback_notice","false");
-        mg.messageSend();
-        FileWriter writer = new FileWriter(STATIC.mdir+"FeedBacks.txt", true);  
-        writer.write(str);  
-        writer.close();
-        response.sendRedirect("feedback.jsp?success=1");
+            }
+            message mg = new message("admin",tel,"用户<"+name+">提交了反馈<"+content+">", "feedback_notice","false");
+            mg.messageSend();
+            response.sendRedirect("feedback.jsp?success=1");
         }
     }
 
