@@ -5,8 +5,10 @@
         <group>
             <file>file:/H:/j2ee/项目/AnswerSheet/src/java/serv/STATIC.java</file>
             <file>file:/H:/j2ee/项目/AnswerSheet/src/java/serv/insertNewQues.java</file>
+            <file>file:/H:/j2ee/项目/AnswerSheet/web/WEB-INF/dwr.xml</file>
             <file>file:/H:/j2ee/项目/AnswerSheet/src/java/serv/examineQ.java</file>
             <file>file:/H:/j2ee/项目/AnswerSheet/src/java/serv/message.java</file>
+            <file>file:/H:/j2ee/项目/AnswerSheet/web/WEB-INF/web.xml</file>
             <file>file:/H:/j2ee/项目/AnswerSheet/src/java/serv/Feedback.java</file>
         </group>
     </open-files>
