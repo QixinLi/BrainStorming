@@ -10,5 +10,5 @@ package serv;
  * @author lee
  */
 public class STATIC {
-    static public String mdir="C:\\TNFB\\";//服务器与本地测试时地址不一致时，修改此项
+    static public String mdir="D:\\TNFB\\";//服务器与本地测试时地址不一致时，修改此项
 }

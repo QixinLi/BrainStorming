@@ -124,6 +124,7 @@ function callBack(data)
     $("#optB").text(strs[3]);//选项B
     $("#optC").text(strs[4]);//选项C
     $("#optD").text(strs[5]);//选项D
+    $("#score").text(numofCorrect+1);
     if(strs[6]==="admin")
     {
         $("#user").text("内容来源于网络");
@@ -182,7 +183,7 @@ function clickA()
         if(correctAns==="A")
         {
             numofCorrect++;
-            $("#score").text(numofCorrect);
+            //$("#score").text(numofCorrect+1);
             $("#optA").css({
                 "background-color":"green"
             });
@@ -207,7 +208,7 @@ function clickB()
         if(correctAns==="B")
         {
             numofCorrect++;
-            $("#score").text(numofCorrect);
+            //$("#score").text(numofCorrect+1);
             $("#optB").css({
                 "background-color":"green"
             });
@@ -231,7 +232,7 @@ function clickC()
         if(correctAns==="C")
         {
             numofCorrect++;
-            $("#score").text(numofCorrect);
+            
             $("#optC").css({
                 "background-color":"green"
             });
@@ -255,7 +256,7 @@ function clickD()
         if(correctAns==="D")
         {
             numofCorrect++;
-            $("#score").text(numofCorrect);
+            //$("#score").text(numofCorrect+1);
             $("#optD").css({
                 "background-color":"green"
             });

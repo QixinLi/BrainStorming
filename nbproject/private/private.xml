@@ -4,11 +4,8 @@
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
             <file>file:/H:/j2ee/项目/AnswerSheet/src/java/serv/STATIC.java</file>
-            <file>file:/H:/j2ee/项目/AnswerSheet/src/java/serv/insertNewQues.java</file>
-            <file>file:/H:/j2ee/项目/AnswerSheet/src/java/serv/examineQ.java</file>
-            <file>file:/H:/j2ee/项目/AnswerSheet/src/java/serv/message.java</file>
-            <file>file:/H:/j2ee/项目/AnswerSheet/src/java/serv/Feedback.java</file>
-            <file>file:/H:/j2ee/项目/AnswerSheet/src/java/serv/getUserMsg.java</file>
+            <file>file:/H:/j2ee/项目/AnswerSheet/web/Start.jsp</file>
+            <file>file:/H:/j2ee/项目/AnswerSheet/web/js/Start.js</file>
         </group>
     </open-files>
 </project-private>

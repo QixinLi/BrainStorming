@@ -59,7 +59,7 @@
     %>
     <body onload="AutoLoad()" onresize="changeWindowAuto()">
         <div id="gameDiv" class="absol">
-            <div id="score" class="absol">0</div>
+            <div id="score" class="absol">1</div>
             <div id="title" class="absol"></div>
             <div id="classes" class="absol">类别：天文</div>
             <button id="optA" class="absol button" onclick="clickA()">选项A</button>
