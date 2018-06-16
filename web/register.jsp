@@ -75,7 +75,7 @@ String getReturn="null";
 <body onresize="changeWindowAuto()" onload="AutoLoad()">
     <div id="login" class="absol">
 			<div id="logo" class="absol">
-				<img src="images/logo.jpg">
+				<img src="images/logo.png">
 			</div>
 			
 			<form action = "register" method = "post" onsubmit = "return validate()"> 

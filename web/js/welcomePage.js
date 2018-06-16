@@ -5,6 +5,10 @@
  */
 function AutoLoad(){
     $("#mailMsg").hide();
+    $("#myFriend").hide();
+    $("#addFriend").hide();
+    $("#chatwithfriend").hide();
+    $(".loadingimg").hide();
     changeWindowAuto();
 }
 
@@ -105,6 +109,11 @@ function changeWindowAuto(){
             "left":panelwidth*0.838889,
             "top":panelwidth*1.658333
         })
+        $("#friend").css({
+            "width":panelwidth*0.083333,
+            "top":panelwidth*0.083333,
+            "left":panelwidth*-0.0472222
+        })
 }
 
 function callBackimg(data)
@@ -115,7 +124,7 @@ function callBackimg(data)
     }
     else
     {
-        $("#touxiang").attr("images/logo.jpg",data);
+        $("#touxiang").attr("images/logo.png",data);
     }
 }
 function callBackmsg(data)
@@ -129,6 +138,16 @@ function callBackmsg(data)
     {
         $("#mymsg").empty();
         $("#mymsg").append("<br><br>什么消息也没有~<br><br><br>");
+    }
+    
+}
+
+function callBackMsgCheck(data){
+    if(data==true){
+        $("#mailimg").attr("src","images/mail_check.png");
+    }
+    else{
+        $("#mailimg").attr("src","images/mail.png");
     }
 }
 
@@ -229,6 +248,7 @@ function showMailandGetMsg()
 function showMailMsg()
 {
     $("#mailMsg").toggle();
+    getUserMsg.checkUserMsgstr(tel,callBackMsgCheck);
 }
 
 function readAllMsg()
@@ -253,4 +273,148 @@ function readAllMsg()
             showMailMsg();
         }
     }, "json"); 
+}
+
+function addFriend(){
+    $("#myFriend").toggle();
+    $("#addFriend").toggle();
+}
+
+function showFriend()
+{
+    $("#myFriend").toggle();
+    $(".loadingimg").show();
+    friend.getAllFriend(tel,showFriendcallback);
+}
+
+function showADDFriend()
+{
+    $("#addFriend").toggle();
+}
+
+function showFriendcallback(data){
+    if(data==""){
+        $("#mybuddy").empty();
+        $("#mybuddy").append("您还没有好友哦~~");
+    }
+    else{
+        $("#mybuddy").empty();
+        $("#mybuddy").append(data);
+    }
+    $(".loadingimg").hide();
+}
+
+var tel2;
+function searchTel()
+{
+    tel2=document.getElementById("userTel").value;  
+    if(tel2==""){
+        $.DialogByZ.Alert({Title:"提示",Content:"账号不能为空！",BtnL:"确认",FunL:alerts});
+        document.getElementById("userTel").focus();    
+    }
+    else{
+        $("#getUserByTel").empty();
+        $(".loadingimg").show();
+        friend.getFriendByTel(tel2,searchTelcallback);
+    }
+}
+
+function searchTelcallback(data){
+    $(".loadingimg").hide();
+    if(data=="false"){
+        $("#getUserByTel").empty();
+        $("#getUserByTel").append("出错啦！！");
+    }
+    else if(data=="null"){
+        $("#getUserByTel").empty();
+        $("#getUserByTel").append("根本就没有这个人嘛！嘤嘤嘤~~");
+    }
+    else{
+        $("#getUserByTel").empty();
+        $("#getUserByTel").append(data);
+    }
+}
+
+function sendFriendRequest(){
+    if(tel==tel2){
+        $.DialogByZ.Alert({Title:"提示",Content:"无法添加自己为好友！",BtnL:"确认",FunL:alerts});
+    }
+    else{
+        friend.sendFriendRequest(tel,tel2,sendFRcallback);
+    }
+}
+
+function sendFRcallback(data){
+    if(data=="fail"){
+        $.DialogByZ.Alert({Title:"提示",Content:"发生异常，添加失败",BtnL:"确认",FunL:alerts});
+    }
+    else{
+        $("#addFriend").toggle();
+        $.DialogByZ.Alert({Title:"提示",Content:"好友请求信息已发送！",BtnL:"确认",FunL:alerts});
+    }
+}
+
+var myfriend;
+function examFriendRequest(friend){
+    myfriend=friend;
+    $.DialogByZ.Confirm({Title: "好友添加请求", Content: "用户"+friend+"想要添加您为好友",BtnL:"同意",BtnR:"拒绝",FunL:confirmL,FunR:refuseR})
+}
+
+function confirmL(){
+    friend.addFriendRelationship(tel,myfriend,confirmLcallback);
+}
+
+function refuseR(){
+    $.DialogByZ.Close();
+}
+
+function confirmLcallback(data){
+    if(data=="exist"){
+        $.DialogByZ.Alert({Title:"提示",Content:"该用户已经是您的好友！",BtnL:"确认",FunL:alerts});
+    }
+    else if(data=="fail"){
+        $.DialogByZ.Alert({Title:"提示",Content:"出错了，添加好友失败！",BtnL:"确认",FunL:alerts});
+    }
+    else{
+        $.DialogByZ.Alert({Title:"提示",Content:"成功添加好友！",BtnL:"确认",FunL:alerts});
+    }
+}
+
+var chattingFriend;
+function sendMessageToFriend(friend,msg){
+    $("#myFriend").toggle();
+    chattingFriend=friend;
+    if(msg!=""){
+        $(".friendid").text("站内信 - TO："+friend+"<br/>回复：<"+msg+">");
+    }
+    else
+    {
+        $(".friendid").text("站内信 - TO："+friend);
+    }
+    $("#chatwithfriend").toggle();
+}
+
+function showChatFriend(){
+    $("#chatwithfriend").toggle();
+}
+
+function sendMsg(){
+    var mtext=document.getElementById("usertextmsg").value;  
+    if(mtext==""){
+        $.DialogByZ.Alert({Title:"提示",Content:"什么也不想发？",BtnL:"确认",FunL:alerts});
+        document.getElementById("usertextmsg").focus();    
+    }
+    else{
+        friend.sendFriendMsg(chattingFriend,tel,mtext,sendMsgcallback);
+    }
+}
+
+function sendMsgcallback(data){
+    if(data=="fail"){
+        $.DialogByZ.Alert({Title:"提示",Content:"发送出错，请稍后再试！",BtnL:"确认",FunL:alerts});
+    }
+    else{
+        $("#chatwithfriend").toggle();
+        $.DialogByZ.Alert({Title:"提示",Content:"已将消息发送给好友！",BtnL:"确认",FunL:alerts});
+    }
 }

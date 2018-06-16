@@ -24,6 +24,10 @@
     <create creator="new" javascript="message_center">
       <param name="class" value="serv.message"/>
     </create>
+    
+    <create creator="new" javascript="friend">
+      <param name="class" value="serv.Friend"/>
+    </create>
 
   </allow>
 </dwr>

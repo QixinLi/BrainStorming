@@ -20,7 +20,7 @@ import net.sf.json.JSONObject;
 public class getUserMsg {
     public String getUserMsgstr(String tel) throws FileNotFoundException, IOException{
         File file = new File(STATIC.mdir+"userMsg\\"+tel+".txt");  
-        if(!file.exists()){  
+        if(!file.exists()){
             return "";
         }
         InputStreamReader reader = new InputStreamReader(new FileInputStream(STATIC.mdir+"userMsg\\"+tel+".txt")); // 建立一个输入流对象reader  
@@ -46,31 +46,84 @@ public class getUserMsg {
         {
             if(!mymsg[j].read)
             {
-                str+="<ul>\n" +
-"                    <li style=\"background-color: #fff6ac\">\n" +
-"                        <div class='content'>\n" +
-"                            <h3>"+mymsg[j].sender+"</h3>\n" +
-"                            <span class='preview'>"+mymsg[j].information+"</span>\n" +
-"                        </div>\n" +
-"                    </li>\n" +
-"                </ul>";
+                if(mymsg[j].type.equals("friend_Request"))
+                {
+                    str+=
+                        "<ul onclick=\"examFriendRequest('"+mymsg[j].sender+"')\" >\n" +
+                            "<li style=\"background-color: #fff6ac\">\n" +
+                                "<div class='content'>\n"+
+                                    "<h3>"+mymsg[j].sender+"</h3>\n"+
+                                    "<span class='preview'>"+mymsg[j].information+"</span>\n" +
+                                "</div>\n" +
+                            "</li>\n" +
+                        "</ul>";
+                }
+                else
+                {
+                    str+=
+                        "<ul>\n" +
+                            "<li style=\"background-color: #fff6ac\">\n" +
+                                "<div class='content'>\n" +
+                                    "<h3>"+mymsg[j].sender+"</h3>\n" +
+                                    "<span class='preview'>"+mymsg[j].information+"</span>\n" +
+                                "</div>\n" +
+                            "</li>\n" +
+                        "</ul>";
+                }
             }
         }
         for(int j=i-1;j>=0;j--)
         {
             if(mymsg[j].read)
             {
-                str+="<ul>\n" +
-"                    <li>\n" +
-"                        <div class='content'>\n" +
-"                            <h3>"+mymsg[j].sender+"</h3>\n" +
-"                            <span class='preview'>"+mymsg[j].information+"</span>\n" +
-"                        </div>\n" +
-"                    </li>\n" +
-"                </ul>";
+                if(mymsg[j].type.equals("friend_Request"))
+                {
+                    str+=
+                            "<ul onclick=\"examFriendRequest('"+mymsg[j].sender+"')\" >\n" +
+                                "<li>\n" +
+                                    "<div class='content'>\n" +
+                                        "<h3>"+mymsg[j].sender+"</h3>\n" +
+                                        "<span class='preview'>"+mymsg[j].information+"</span>\n" +
+                                     "</div>\n" +
+                                "</li>\n" +
+                            "</ul>";
+                }
+                else
+                {
+                    str+="<ul>\n" +
+                        "<li>\n" +
+                            "<div class='content'>\n" +
+                                "<h3>"+mymsg[j].sender+"</h3>\n" +
+                                "<span class='preview'>"+mymsg[j].information+"</span>\n" +
+                            "</div>\n" +
+                        "</li>\n" +
+                    "</ul>";
+                }
+                
             }
         }
         return str;
+    }
+    public boolean checkUserMsgstr(String tel) throws FileNotFoundException, IOException{
+        File file = new File(STATIC.mdir+"userMsg\\"+tel+".txt");  
+        if(!file.exists()){  
+            return false;
+        }
+        InputStreamReader reader = new InputStreamReader(new FileInputStream(STATIC.mdir+"userMsg\\"+tel+".txt")); // 建立一个输入流对象reader  
+        BufferedReader br = new BufferedReader(reader); // 建立一个对象，它把文件内容转成计算机能读懂的语言  
+        String line = "";  
+        int i=0;
+        line = br.readLine();
+        while(line != null){
+            JSONObject jsonObject = JSONObject.fromObject(line);
+            boolean read = jsonObject.getBoolean("read");
+            if(read==false){
+                return true;
+            }
+            i++;
+            line = br.readLine();
+        }
+        return false;
     }
 }
 class Msg{

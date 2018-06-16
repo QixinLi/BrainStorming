@@ -42,7 +42,7 @@ String username="null";
             <div id="loginDiv" class="absol">
                 
                 <div id="logo" class="absol">
-                    <img src="images/logo.jpg">
+                    <img src="images/logo.png">
 		</div>
                 
                 <div id="usernameimg" class="absol" >

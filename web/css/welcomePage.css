@@ -145,10 +145,53 @@ body {
 #welcomemsg{
     position:absolute;
 }
+
+#friend{
+    position: absolute;
+}
+
 #mail{
     position: absolute;
 }
 
 #logout{
     position: absolute;
+}
+
+#userTel{
+    height:26px;
+    margin-top: 7px;
+    margin-left: 7px;
+    margin-bottom: 7px;
+}
+
+#searchTel{
+    margin-top: 5px;
+}
+
+.uimg{
+    width:64px;
+}
+
+.loadingimg{
+    width:50%;
+}
+
+#usertextmsg{
+    height:125px;
+    width:192px;
+    margin-top:7px;
+    margin-left:33px;
+    margin-right: 33px;
+    margin-bottom: 7px;
+}
+
+#sendmsg{
+    margin-left: 122px;
+    margin-bottom: 10px;
+}
+
+.friendid{
+    margin-bottom: 5px;
+    margin-top: 10px;
 }

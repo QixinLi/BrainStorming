@@ -14,6 +14,7 @@
         <script src='<%=request.getContextPath()%>/dwr/engine.js'></script>
         <script src='<%=request.getContextPath()%>/dwr/interface/getUserImg.js'></script>
         <script src='<%=request.getContextPath()%>/dwr/interface/getUserMsg.js'></script>
+        <script src='<%=request.getContextPath()%>/dwr/interface/friend.js'></script>
         <script type='text/javascript' src='<%=request.getContextPath()%>/dwr/util.js'></script>
         
         <script type="text/javascript" src="js/jquery-1.11.2.min.js"></script>
@@ -66,10 +67,13 @@
             <div id="loginBg"></div>
             <div id="userDetails">
                 <div id="mail" onclick="showMailandGetMsg()">
-                    <img src="images/mail.png">
+                    <img id="mailimg" src="images/mail.png">
+                </div>
+                <div id="friend" onclick="showFriend()">
+                    <img src="images/friend.png">
                 </div>
                 <label id="userimg">
-                    <img  id="touxiang" src="images/logo.jpg">
+                    <img  id="touxiang" src="images/logo.png">
                     <input type="hidden" id="img" name="uploadImg"/>  
                     <input type="file" id="uploadImg" onchange="selectImg(this);" accept="image/*"/>  
                 </label>
@@ -89,6 +93,7 @@
             </div>
             <button id="logout" onclick="window.location='login.jsp'">注销</button>
         </div>
+        
         <div id="mailMsg" class="chat">
             <header>
                 <h2 class='title'>我的消息</h2>
@@ -100,6 +105,45 @@
                 <a onclick="readAllMsg()">全部已读</a><a onclick="showMailMsg()">关闭</a>
             </footer>
         </div>
+        
+        <div id="myFriend" class="chat">
+            <header>
+                <h2 class='title'>好友列表</h2>
+            </header>
+            <img class="loadingimg" src="images/loading.gif">
+            <div class='body' id="mybuddy">
+            </div>
+            <footer>
+                <a onclick="addFriend()">添加好友</a><a onclick="showFriend()">关闭</a>
+            </footer>
+        </div>
+        
+        <div id="addFriend" class="chat">
+            <header>
+                <h2 class='title'>账号查找</h2>
+            </header>
+            <input id="userTel" type="text" />
+            <button id="searchTel" onclick="searchTel()">查找</button>
+            <img class="loadingimg" src="images/loading.gif">
+            <div class='body' id="getUserByTel">
+            </div>
+            <footer>
+                <a onclick="showADDFriend()">关闭</a>
+            </footer>
+        </div>
+        
+        <div id="chatwithfriend" class="chat">
+            <header>
+                <h2 class='title'>TNFB聊天</h2>
+            </header>
+            <div class="friendid">站内信——TO：</div>
+            <input id="usertextmsg" type="text" />
+            <button id="sendmsg" onclick="sendMsg()">发送</button>
+            <footer>
+                <a onclick="showChatFriend()">关闭</a>
+            </footer>
+        </div>
+        
         <script type="text/javascript" src="js/mailmsg.js"></script>
         <script>
             var username = '<%= username %>';
@@ -111,7 +155,7 @@
             $("#username").text("昵称："+username);
             $("#userscore").text("积分："+score);
             getUserImg.getUserImgsrc(tel,callBackimg);
-            
+            getUserMsg.checkUserMsgstr(tel,callBackMsgCheck);
         }
         else
         {
