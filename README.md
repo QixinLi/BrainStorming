@@ -7,9 +7,9 @@ jsp_servlet_dwr框架下的头脑风暴游戏
 
 *欢迎大家关注我的公众号*：liqixin1997
 ![](http://myimage-liqixin.oss-cn-beijing.aliyuncs.com/18-6-17/4087343.jpg)<br><br>
-*历史推送*
-[头脑风暴又双叒叕更新了](https://mp.weixin.qq.com/s/yFkv5AnbMjTYwEKS8l7MvQ)
-[第一条推送——千呼万唤始出来](https://mp.weixin.qq.com/s/duHIyeALHGPZB8FDDTsB3A)
+*历史推送*<br>
+[头脑风暴又双叒叕更新了](https://mp.weixin.qq.com/s/yFkv5AnbMjTYwEKS8l7MvQ)<br>
+[第一条推送——千呼万唤始出来](https://mp.weixin.qq.com/s/duHIyeALHGPZB8FDDTsB3A)<br>
 
 # 更新日记
 
