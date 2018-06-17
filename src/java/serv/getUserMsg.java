@@ -58,6 +58,18 @@ public class getUserMsg {
                             "</li>\n" +
                         "</ul>";
                 }
+                else if(mymsg[j].type.equals("friend_chat"))
+                {
+                    str+=
+                        "<ul onclick=\"sendMessageToFriend('"+mymsg[j].sender+"','"+mymsg[j].information+"')\" >\n" +
+                            "<li style=\"background-color: #fff6ac\">\n" +
+                                "<div class='content'>\n"+
+                                    "<h3>"+mymsg[j].sender+"</h3>\n"+
+                                    "<span class='preview'>"+mymsg[j].information+"</span>\n" +
+                                "</div>\n" +
+                            "</li>\n" +
+                        "</ul>";
+                }
                 else
                 {
                     str+=
@@ -87,6 +99,18 @@ public class getUserMsg {
                                      "</div>\n" +
                                 "</li>\n" +
                             "</ul>";
+                }
+                else if(mymsg[j].type.equals("friend_chat"))
+                {
+                    str+=
+                        "<ul onclick=\"sendMessageToFriend('"+mymsg[j].sender+"','"+mymsg[j].information+"')\" >\n" +
+                            "<li>\n" +
+                                "<div class='content'>\n"+
+                                    "<h3>"+mymsg[j].sender+"</h3>\n"+
+                                    "<span class='preview'>"+mymsg[j].information+"</span>\n" +
+                                "</div>\n" +
+                            "</li>\n" +
+                        "</ul>";
                 }
                 else
                 {

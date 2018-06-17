@@ -48,7 +48,7 @@ public class Friend {
                     returnmsg+=
                     "<ul>\n" +
                         "<li>\n" +
-                            "<img class='uimg' src='images/logo.png'/>"+
+                            "<img id='searchlogoimg' class='uimg' src='images/logo.png' onload=\"getFriendLogoByTel("+tel+",'searchlogoimg')\"/>"+
                             "<h3 class='name'>"+name+"</h3>\n" +
                             "<span class='score'>分数："+score+"</span>\n" +
                             "<br><button onclick='sendFriendRequest()'>添加</button>"+
@@ -140,6 +140,7 @@ public class Friend {
         }
         stmt = conn.createStatement();
 	ResultSet rs=stmt.executeQuery(sql);
+        int index=0;
   	while(rs.next()){
             //用户有好友
             String mfriend2=rs.getString("friend2");
@@ -155,12 +156,13 @@ public class Friend {
             str+=
                     "<ul>\n" +
                         "<li>\n" +
-                            "<img class='uimg' src='images/logo.png'/>"+
+                            "<img id='uimg"+index+"' class='uimg' src='images/logo.png' onload=\"getFriendLogoByTel('"+mfriend2+"','uimg"+index+"')\"/>"+
                             "<h3 class='name'>"+name+"</h3>\n" +
                             "<span class='score'>分数："+score+"</span>\n" +
                             "<br><button onclick=\"sendMessageToFriend('"+mfriend2+"','')\">发消息</button>"+
                         "</li>\n" +
                     "</ul>";
+            index++;
         }
   	rs.close();//关闭结果集
   	conn.close();//关闭操作

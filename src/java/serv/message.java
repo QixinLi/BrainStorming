@@ -43,10 +43,10 @@ public class message {
         }
         FileWriter fileWriter = new FileWriter(this.file_dir,true);
         String content="";
-        content="{\"receiver\":\""+this.receiver
-                +"\",\"sender\":\""+this.sender
-                +"\",\"infomation\":\""+this.info
-                +"\",\"type\":\""+this.type
+        content="{\"receiver\":\""+STATIC.string2Json(this.receiver)
+                +"\",\"sender\":\""+STATIC.string2Json(this.sender)
+                +"\",\"infomation\":\""+STATIC.string2Json(this.info)
+                +"\",\"type\":\""+STATIC.string2Json(this.type)
                 +"\",\"read\":\"false\""
                 +"}\r\n";
         BufferedWriter bufferWritter = new BufferedWriter(fileWriter);
@@ -55,7 +55,7 @@ public class message {
         return 0;
     }
     
-   
+    
     
     public int decode()
     {

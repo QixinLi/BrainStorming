@@ -69,14 +69,14 @@ public class insertNewQues extends HttpServlet {
                 }
             }
             
-            String str="{\"title\":\""+title
-                    +"\",\"classes\":\""+classes
-                    +"\",\"optionA\":\""+optionA
-                    +"\",\"optionB\":\""+optionB
-                    +"\",\"optionC\":\""+optionC
-                    +"\",\"optionD\":\""+optionD 
-                    +"\",\"name\":\""+name
-                    +"\",\"user\":\""+tel+"\"}\r\n";
+            String str="{\"title\":\""+STATIC.string2Json(title)
+                    +"\",\"classes\":\""+STATIC.string2Json(classes)
+                    +"\",\"optionA\":\""+STATIC.string2Json(optionA)
+                    +"\",\"optionB\":\""+STATIC.string2Json(optionB)
+                    +"\",\"optionC\":\""+STATIC.string2Json(optionC)
+                    +"\",\"optionD\":\""+STATIC.string2Json(optionD )
+                    +"\",\"name\":\""+STATIC.string2Json(name)
+                    +"\",\"user\":\""+STATIC.string2Json(tel)+"\"}\r\n";
             FileWriter writer;
             if(tel.equals("admin"))
             {

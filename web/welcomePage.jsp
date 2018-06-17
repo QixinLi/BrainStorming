@@ -136,8 +136,8 @@
             <header>
                 <h2 class='title'>TNFB聊天</h2>
             </header>
-            <div class="friendid">站内信——TO：</div>
-            <input id="usertextmsg" type="text" />
+            <div class="friendid">站内信——To：</div>
+            <textarea rows="3" cols="20" id="usertextmsg"></textarea>
             <button id="sendmsg" onclick="sendMsg()">发送</button>
             <footer>
                 <a onclick="showChatFriend()">关闭</a>

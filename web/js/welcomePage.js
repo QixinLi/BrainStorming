@@ -124,7 +124,7 @@ function callBackimg(data)
     }
     else
     {
-        $("#touxiang").attr("images/logo.png",data);
+        $("#touxiang").attr("src","images/logo.png");
     }
 }
 function callBackmsg(data)
@@ -382,14 +382,16 @@ function confirmLcallback(data){
 
 var chattingFriend;
 function sendMessageToFriend(friend,msg){
-    $("#myFriend").toggle();
+    $("#myFriend").hide();
+    $("#mailMsg").hide();
     chattingFriend=friend;
     if(msg!=""){
-        $(".friendid").text("站内信 - TO："+friend+"<br/>回复：<"+msg+">");
+        $(".friendid").text("站内信 — To："+friend);
+        $(".friendid").append("<br>回复：<"+msg+">");
     }
     else
     {
-        $(".friendid").text("站内信 - TO："+friend);
+        $(".friendid").text("站内信 — To："+friend);
     }
     $("#chatwithfriend").toggle();
 }
@@ -416,5 +418,20 @@ function sendMsgcallback(data){
     else{
         $("#chatwithfriend").toggle();
         $.DialogByZ.Alert({Title:"提示",Content:"已将消息发送给好友！",BtnL:"确认",FunL:alerts});
+    }
+}
+
+function getFriendLogoByTel(tel,imgid){
+    getUserImg.getUserImgsrc(tel,{callback:function(data){getFLBTcallback(imgid,data);}});
+}
+
+function getFLBTcallback(imgid,data){
+    if(data !== "null")
+    {
+        $("#"+imgid).attr("src",data);
+    }
+    else
+    {
+        $("#"+imgid).attr("src","images/logo.png");
     }
 }
