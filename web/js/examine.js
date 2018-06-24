@@ -109,6 +109,9 @@ if(width<360)
             "top":panelwidth*1.763889,
             "left":panelwidth*0.2805556
         })
+        $(".absol").css({
+            "display":"inline"
+        })
 }
 
 function callBack(data)
@@ -128,7 +131,7 @@ function callBack(data)
     }
     else
     {
-        $("#user").text("该题由用户‘"+strs[6]+"'提供");
+        $("#user").text("该题由用户‘"+strs[6]+"’提供");
     }
     correctAns=strs[7];
     

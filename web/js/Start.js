@@ -131,7 +131,7 @@ function callBack(data)
     }
     else
     {
-        $("#user").text("该题由用户‘"+strs[6]+"'提供");
+        $("#user").text("该题由用户‘"+strs[6]+"’提供");
     }
     correctAns=strs[7];
     

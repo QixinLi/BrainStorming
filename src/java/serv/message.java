@@ -53,15 +53,6 @@ public class message {
         bufferWritter.write(content);
         bufferWritter.close();
         return 0;
-    }
-    
-    
-    
-    public int decode()
-    {
-        
-        return 0;
-    }
-    
+    }    
 }
 

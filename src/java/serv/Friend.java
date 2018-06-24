@@ -98,7 +98,7 @@ public class Friend {
         }
         stmt = conn.createStatement();
 	ResultSet rs=stmt.executeQuery(sql);
-  	if(rs.next()){
+  	while(rs.next()){
             //用户有好友
             String mfriend2=rs.getString("friend2");
             if(friend2.equals(mfriend2)){
