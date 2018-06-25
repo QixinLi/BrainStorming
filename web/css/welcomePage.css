@@ -203,3 +203,21 @@ body {
   padding: 0;
   background-color: #000000;
 }
+
+.muserscore{
+    background-color:red;
+    border-radius:10px;
+}
+
+.autoaddscore{
+    margin:0 auto;
+    background-color:red;
+    border-radius:10px;
+    width:fit-content;
+    width:-webkit-fit-content;
+    width:-moz-fit-content;
+}
+
+.hideimg{
+    display: none;
+}

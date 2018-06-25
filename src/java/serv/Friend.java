@@ -40,6 +40,7 @@ public class Friend {
                 }
                 stmt = conn.createStatement();
 		ResultSet rs=stmt.executeQuery(sql);
+                int index=0;
   		if(rs.next()){
                     //用户存在
                     String name=rs.getString("name");
@@ -50,10 +51,12 @@ public class Friend {
                         "<li>\n" +
                             "<img id='searchlogoimg' class='uimg' src='images/logo.png' onload=\"getFriendLogoByTel("+tel+",'searchlogoimg')\"/>"+
                             "<h3 class='name'>"+name+"</h3>\n" +
-                            "<span class='score'>分数："+score+"</span>\n" +
+                            "<div id='getuserscorebytel"+index+"' class='autoaddscore'></div>\n" +
+                            "<img src='nothing.jpg' class='hideimg' onerror=\"setLevel("+score+",'getuserscorebytel"+index+"')\"/>"+
                             "<br><button onclick='sendFriendRequest()'>添加</button>"+
                         "</li>\n" +
                     "</ul>";
+                    index++;
                 }
                 else{  
                     returnmsg="null";
@@ -158,7 +161,8 @@ public class Friend {
                         "<li>\n" +
                             "<img id='uimg"+index+"' class='uimg' src='images/logo.png' onload=\"getFriendLogoByTel('"+mfriend2+"','uimg"+index+"')\"/>"+
                             "<h3 class='name'>"+name+"</h3>\n" +
-                            "<span class='score'>分数："+score+"</span>\n" +
+                            "<div id='getuserscore"+index+"' class='autoaddscore'></div>\n" +
+                            "<img src='nothing.jpg' class='hideimg' onerror=\"setLevel("+score+",'getuserscore"+index+"')\"/>"+
                             "<br><button onclick=\"sendMessageToFriend('"+mfriend2+"','')\">发消息</button>"+
                         "</li>\n" +
                     "</ul>";

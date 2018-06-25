@@ -15,7 +15,7 @@ function changeWindowAuto(){
 	var width=$(document.body).width();
 	var height=$(window).height();
 	var panelwidth;
-if(width<360)
+        if(width<360)
 	{
             panelwidth=width;
             $("#gameDiv").css({

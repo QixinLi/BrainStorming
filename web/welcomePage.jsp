@@ -78,7 +78,7 @@
                     <input type="file" id="uploadImg" onchange="selectImg(this);" accept="image/*"/>  
                 </label>
                 <p id="username" onclick="gotoAdminPage()">昵称：</p>
-                <p id="userscore">积分：</p>
+                <p id="userscore" class="muserscore">积分：</p>
                 <a id="welcomemsg">头脑风暴，脑力沙龙</a>
             </div>
             <div id="btPanel">
@@ -150,18 +150,23 @@
             var tel = '<%= tel %>';
             var score = <%= score %>;
 (function(){
-        if( username !== "null" && tel !== "null")
-        {
-            $("#username").text("昵称："+username);
-            $("#userscore").text("积分："+score);
-            getUserImg.getUserImgsrc(tel,callBackimg);
-            getUserMsg.checkUserMsgstr(tel,callBackMsgCheck);
-        }
-        else
-        {
-            $.DialogByZ.Alert({Title:"提示",Content:"登录信息失效，请重新登录！",BtnL:"确认",FunL:alertsBack});
-        }
-        
+    $("#mailMsg").hide();
+    $("#myFriend").hide();
+    $("#addFriend").hide();
+    $("#chatwithfriend").hide();
+    $(".loadingimg").hide();
+    if( username !== "null" && tel !== "null")
+    {
+        $("#username").text(username);
+        setLevel(score,"userscore");
+        //$("#userscore").text("积分："+score);
+        getUserImg.getUserImgsrc(tel,callBackimg);
+        getUserMsg.checkUserMsgstr(tel,callBackMsgCheck);
+    }
+    else
+    {
+        $.DialogByZ.Alert({Title:"提示",Content:"登录信息失效，请重新登录！",BtnL:"确认",FunL:alertsBack});
+    }    
 })(); 
 var start = document.getElementById("start");
 start.addEventListener('click',animateButtonStart,false);

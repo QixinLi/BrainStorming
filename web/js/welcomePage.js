@@ -4,11 +4,6 @@
  * and open the template in the editor.
  */
 function AutoLoad(){
-    $("#mailMsg").hide();
-    $("#myFriend").hide();
-    $("#addFriend").hide();
-    $("#chatwithfriend").hide();
-    $(".loadingimg").hide();
     changeWindowAuto();
 }
 
@@ -87,13 +82,13 @@ function changeWindowAuto(){
                 "bottom":panelwidth*0.1527778
 	});
         $("#username").css({
-		"left":panelwidth*0.333333,
-		"top":panelwidth*0.0694444,
+		"left":panelwidth*0.388889,
+		"top":panelwidth*0.108333,
                 "font-size":panelwidth*0.055556
 	});
         $("#userscore").css({
-		"left":panelwidth*0.333333,
-		"top":panelwidth*0.227778,
+		"left":panelwidth*0.388889,
+		"top":panelwidth*0.208333,
                 "font-size":panelwidth*0.055556
 	});
         $("#welcomemsg").css({
@@ -295,7 +290,7 @@ function showADDFriend()
 function showFriendcallback(data){
     if(data==""){
         $("#mybuddy").empty();
-        $("#mybuddy").append("您还没有好友哦~~");
+        $("#mybuddy").append("<br>您还没有好友哦~~<br>");
     }
     else{
         $("#mybuddy").empty();
@@ -308,7 +303,7 @@ var tel2;
 function searchTel()
 {
     tel2=document.getElementById("userTel").value;  
-    if(tel2==""){
+    if(tel2===""){
         $.DialogByZ.Alert({Title:"提示",Content:"账号不能为空！",BtnL:"确认",FunL:alerts});
         document.getElementById("userTel").focus();    
     }
@@ -321,13 +316,13 @@ function searchTel()
 
 function searchTelcallback(data){
     $(".loadingimg").hide();
-    if(data=="false"){
+    if(data==="false"){
         $("#getUserByTel").empty();
-        $("#getUserByTel").append("出错啦！！");
+        $("#getUserByTel").append("<br>出错啦！！<br>");
     }
     else if(data=="null"){
         $("#getUserByTel").empty();
-        $("#getUserByTel").append("根本就没有这个人嘛！嘤嘤嘤~~");
+        $("#getUserByTel").append("<br>根本就没有这个人嘛！嘤嘤嘤~~<br>");
     }
     else{
         $("#getUserByTel").empty();
@@ -336,7 +331,7 @@ function searchTelcallback(data){
 }
 
 function sendFriendRequest(){
-    if(tel==tel2){
+    if(tel===tel2){
         $.DialogByZ.Alert({Title:"提示",Content:"无法添加自己为好友！",BtnL:"确认",FunL:alerts});
     }
     else{
@@ -345,7 +340,7 @@ function sendFriendRequest(){
 }
 
 function sendFRcallback(data){
-    if(data=="fail"){
+    if(data==="fail"){
         $.DialogByZ.Alert({Title:"提示",Content:"发生异常，添加失败",BtnL:"确认",FunL:alerts});
     }
     else{
@@ -369,10 +364,10 @@ function refuseR(){
 }
 
 function confirmLcallback(data){
-    if(data=="exist"){
+    if(data==="exist"){
         $.DialogByZ.Alert({Title:"提示",Content:"该用户已经是您的好友！",BtnL:"确认",FunL:alerts});
     }
-    else if(data=="fail"){
+    else if(data==="fail"){
         $.DialogByZ.Alert({Title:"提示",Content:"出错了，添加好友失败！",BtnL:"确认",FunL:alerts});
     }
     else{
@@ -385,7 +380,7 @@ function sendMessageToFriend(friend,msg){
     $("#myFriend").hide();
     $("#mailMsg").hide();
     chattingFriend=friend;
-    if(msg!=""){
+    if(msg!==""){
         $(".friendid").text("站内信 — To："+friend);
         $(".friendid").append("<br>回复：<"+msg+">");
     }
@@ -402,7 +397,7 @@ function showChatFriend(){
 
 function sendMsg(){
     var mtext=document.getElementById("usertextmsg").value;  
-    if(mtext==""){
+    if(mtext===""){
         $.DialogByZ.Alert({Title:"提示",Content:"什么也不想发？",BtnL:"确认",FunL:alerts});
         document.getElementById("usertextmsg").focus();    
     }
@@ -412,7 +407,7 @@ function sendMsg(){
 }
 
 function sendMsgcallback(data){
-    if(data=="fail"){
+    if(data==="fail"){
         $.DialogByZ.Alert({Title:"提示",Content:"发送出错，请稍后再试！",BtnL:"确认",FunL:alerts});
     }
     else{
@@ -433,5 +428,74 @@ function getFLBTcallback(imgid,data){
     else
     {
         $("#"+imgid).attr("src","images/logo.png");
+    }
+}
+
+function setLevel(score,id){
+    if(score===0){
+        $("#"+id).css({
+            "background-color":"#fc7ce1"
+        });
+        $("#"+id).html("&nbsp;宝宝&nbsp;");
+    }
+    else if(score>=1&&score<=7){
+        $("#"+id).css({
+            "background-color":"#ff5959"
+        });
+        $("#"+id).html("&nbsp;读书郎&nbsp;");
+    }
+    else if(score>=8&&score<=29){
+        $("#"+id).css({
+            "background-color":"#ff7c3b"
+        });
+        $("#"+id).html("&nbsp;秀才&nbsp;");
+    }
+    else if(score>=30&&score<=99){
+        $("#"+id).css({
+            "background-color":"#ffff2b" 
+        });
+        $("#"+id).html("&nbsp;举人&nbsp;");
+    }
+    else if(score>=100&&score<=299){
+        $("#"+id).css({
+            "background-color":"#58f538"
+        });
+        $("#"+id).html("&nbsp;贡人&nbsp;");
+    }
+    else if(score>=300&&score<=999){
+        $("#"+id).css({
+            "background-color":"#61ffda" 
+        });
+        $("#"+id).html("&nbsp;探花&nbsp;");
+    }
+    else if(score>=1000&&score<=9999){
+        $("#"+id).css({
+            "background-color":"#617bff" 
+        });
+        $("#"+id).html("&nbsp;榜眼&nbsp;");
+    }
+    else if(score>=10000&&score<=99999){
+        $("#"+id).css({
+            "background-color":"#ce31f5" 
+        });
+        $("#"+id).html("&nbsp;状元&nbsp;");
+    }
+    else if(score>=100000&&score<=999999){
+        $("#"+id).css({
+            "background-color":"#a1a19c"
+        });
+        $("#"+id).html("&nbsp;翰林&nbsp;");
+    }
+    else if(score>=1000000){
+        $("#"+id).css({
+            "background-color":"#dbb520"
+        });
+        $("#"+id).html("&nbsp;大圣人&nbsp;");
+    }
+    else{
+        $("#"+id).css({
+            "background-color":"red"
+        });
+        $("#"+id).html("&nbsp;等级出错...&nbsp;");
     }
 }
